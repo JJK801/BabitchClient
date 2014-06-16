@@ -176,6 +176,7 @@ angular.module('babitchFrontendApp').controller('babitchCtrl', function ($scope,
 
     $scope.startGame = function () {
         if($scope.nbPlayers !== 4) {
+            /* jshint devel:true */
             console.log('Error, not enough player selected : need 4');
             return;
         }

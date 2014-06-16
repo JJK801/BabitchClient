@@ -1,3 +1,5 @@
+'use strict';
+
 var BabitchStatsPlayersPage = function(browser) {
     browser.get(browser.baseUrl + '#/stats/players?nobackend');
     this.navbarActive = $('ul.nav li.active');

@@ -88,18 +88,81 @@ module.exports = function (grunt) {
         // Make sure code styles are up to par and there are no obvious mistakes
         jshint: {
             options: {
-                jshintrc: '.jshintrc',
+                browser: true,
+                esnext: true,
+                bitwise: true,
+                camelcase: true,
+                curly: true,
+                eqeqeq: true,
+                immed: true,
+                indent: 4,
+                latedef: true,
+                newcap: true,
+                noarg: true,
+                quotmark: 'single',
+                regexp: true,
+                undef: true,
+                unused: true,
+                strict: true,
+                trailing: true,
+                smarttabs: true,
+                globals: {
+                    angular: false
+                },
                 reporter: require('jshint-stylish')
             },
-            all: [
-                'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js'
-            ],
+            app: {
+                options: {
+                    globalstrict: true
+                },
+                src: ['<%= yeoman.app %>/scripts/{,*/}*.js']
+            },
+            gruntfile: {
+                options: {
+                    node: true
+                },
+                src: ['Gruntfile.js',]
+            },
             test: {
                 options: {
-                    jshintrc: 'test/.jshintrc'
+                    node: true,
+                    globals: {
+                        after: false,
+                        afterEach: false,
+                        angular: false,
+                        before: false,
+                        beforeEach: false,
+                        browser: false,
+                        describe: false,
+                        expect: false,
+                        inject: false,
+                        it: false,
+                        spyOn: false
+                    }
                 },
                 src: ['test/spec/{,*/}*.js']
+            },
+            e2e: {
+                options: {
+                    node: true,
+                    globals: {
+                        after: false,
+                        afterEach: false,
+                        angular: false,
+                        before: false,
+                        beforeEach: false,
+                        browser: false,
+                        describe: false,
+                        expect: false,
+                        inject: false,
+                        it: false,
+                        spyOn: false,
+                        by: false,
+                        $: false,
+                        $$: false
+                    }
+                },
+                src: ['test/e2e/{,*/}*.js']
             }
         },
 
